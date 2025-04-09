@@ -14,7 +14,12 @@ const ordersServices = require("./src/routes/orders.route");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,POST,DELETE,PUT",
+  })
+);
 
 connection();
 accountServices(app);
